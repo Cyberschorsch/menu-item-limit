@@ -1,6 +1,5 @@
 name = Menu Item Limit
 description = Allows to control the amount of items per menu.
-version = VERSION
 core = 7.x
 
 dependencies[] = menu
