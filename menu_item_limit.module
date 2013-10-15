@@ -5,7 +5,9 @@
  * Menu item limit enables the limitation of items per menu.
  */
 
-// Implements hook_form_alter().
+/**
+ * Implements hook_form_alter().
+ */
 function menu_item_limit_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'menu_edit_menu':
@@ -24,6 +26,7 @@ function menu_item_limit_form_alter(&$form, &$form_state, $form_id) {
       break;
   }
 }
+
 /**
  * Add a form element to configure the item limitation of a menu.
  *
@@ -47,6 +50,7 @@ function menu_item_limit_config_menu($form, &$form_state) {
   );
   return $config_item;
 }
+
 /**
  * Validate the user input for the item limitation.
  *
@@ -62,6 +66,7 @@ function menu_item_limit_config_menu_validate($form, &$form_state) {
     form_set_error('menu_item_limit', t('The Item Limitation has to be set to 0 or higher.'));
   }
 }
+
 /**
  * Set the new value for the item limitation of the menu.
  *
@@ -76,6 +81,7 @@ function menu_item_limit_config_menu_submit($form, &$form_state) {
   $menu_name = $form_state['values']['menu_name'];
   variable_set('menu_item_limit-' . $menu_name, $limit);
 }
+
 /**
  * Validate an item within limit settings.
  *
@@ -108,6 +114,7 @@ function menu_item_limit_menu_validate($form, &$form_state) {
     }
   }
 }
+
 /**
  * This function takes a menu name and returns the number of menu items in it.
  *
